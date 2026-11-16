@@ -26,19 +26,25 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Host ""
-Write-Host "[2/3] Cập nhật các thay đổi mới nhất..." -ForegroundColor Yellow
-& $git add .
-$null = & $git commit -m "Cap nhat trang bio Nguyen Van Binh" 2>&1
-
-Write-Host ""
-Write-Host "[3/3] Đang đẩy lên GitHub của ní..." -ForegroundColor Yellow
-$res = & $gh repo create bio-page --public --source=. --remote=origin --push 2>&1
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "  -> Đang đồng bộ lên nhánh main..." -ForegroundColor Cyan
-    & $git push -u origin main
+Write-Host "[2/3] Kiểm tra và cập nhật các thay đổi mới nhất..." -ForegroundColor Yellow
+$status = & $git status --porcelain
+if ($status) {
+    Write-Host "  -> Phát hiện các file đã thay đổi:" -ForegroundColor Cyan
+    Write-Host $status
+    & $git add .
+    $null = & $git commit -m "Cap nhat trang bio Nguyen Van Binh" 2>&1
+    Write-Host "  -> Đã đóng gói các thay đổi mới thành công!" -ForegroundColor Green
+} else {
+    Write-Host "  ℹ️ Hiện không có nội dung nào mới cần lưu." -ForegroundColor DarkYellow
+    Write-Host "     (Lưu ý: Nếu ní vừa sửa trong Admin, hãy nhớ bấm nút hồng [🚀 Xuất Bản index.html] trước khi chạy file này nha!)" -ForegroundColor Magenta
 }
 
 Write-Host ""
+Write-Host "[3/3] Đang đồng bộ lên GitHub và Vercel..." -ForegroundColor Yellow
+$pushOut = & $git push -u origin main 2>&1
+Write-Host $pushOut
+
+Write-Host ""
 Write-Host "================================================================" -ForegroundColor Green
-Write-Host "  🎉 XONG RỒI NÍ ƠI! Toàn bộ code đã nằm gọn trên GitHub!" -ForegroundColor Green
+Write-Host "  🎉 XONG RỒI NÍ ƠI! Web trên Vercel đang cập nhật ngay bây giờ!" -ForegroundColor Green
 Write-Host "================================================================" -ForegroundColor Green
