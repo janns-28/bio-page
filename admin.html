@@ -2725,6 +2725,14 @@
         '  <meta charset="UTF-8">\n' +
         '  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' +
         '  <title>' + (studioData.profile.name || 'Bio Studio') + '</title>\n' +
+        '  <!-- Google tag (gtag.js) -->\n' +
+        '  <scr' + 'ipt async src="https://www.googletagmanager.com/gtm.js?id=GTM-P7B8BZ9S"></scr' + 'ipt>\n' +
+        '  <scr' + 'ipt>\n' +
+        '    window.dataLayer = window.dataLayer || [];\n' +
+        '    function gtag(){dataLayer.push(arguments);}\n' +
+        '    gtag(\'js\', new Date());\n' +
+        '    gtag(\'config\', \'GTM-P7B8BZ9S\');\n' +
+        '  </scr' + 'ipt>\n' +
         '  <link rel="preconnect" href="https://fonts.googleapis.com">\n' +
         '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">\n' +
         '  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">\n' +
@@ -2788,6 +2796,46 @@
         '  @media (max-width:420px){.grid{grid-template-columns:1fr 1fr;gap:10px;}.hero-name{font-size:22px;}}\n' +
         '  </style>\n</head>\n<body>\n' +
         canvasClone.outerHTML +
+        '\n  <scr' + 'ipt>\n' +
+        '    document.addEventListener(\'DOMContentLoaded\', function() {\n' +
+        '      document.querySelectorAll(\'#bento-grid .card\').forEach(function(card) {\n' +
+        '        card.addEventListener(\'click\', function() {\n' +
+        '          var title = (card.querySelector(\'.card-title-text\') || card.querySelector(\'.card-title\') || {}).innerText || \'Card App\';\n' +
+        '          var link = card.href || card.getAttribute(\'href\') || \'\';\n' +
+        '          if (typeof gtag === \'function\') {\n' +
+        '            gtag(\'event\', \'click_card\', { event_category: \'Bento Card Click\', event_label: title.trim(), link_url: link });\n' +
+        '          }\n' +
+        '        });\n' +
+        '      });\n' +
+        '      document.querySelectorAll(\'#community-list .community-row\').forEach(function(row) {\n' +
+        '        row.addEventListener(\'click\', function() {\n' +
+        '          var title = (row.querySelector(\'.ct-title\') || {}).innerText || \'The Tin Dung\';\n' +
+        '          var link = row.href || row.getAttribute(\'href\') || \'\';\n' +
+        '          if (typeof gtag === \'function\') {\n' +
+        '            gtag(\'event\', \'click_credit_card\', { event_category: \'The Tin Dung Click\', event_label: title.trim(), link_url: link });\n' +
+        '          }\n' +
+        '        });\n' +
+        '      });\n' +
+        '      var featCard = document.getElementById(\'featured-card\');\n' +
+        '      if (featCard) {\n' +
+        '        featCard.addEventListener(\'click\', function() {\n' +
+        '          var title = (document.getElementById(\'feat-title\') || {}).innerText || \'Zalo Banner\';\n' +
+        '          if (typeof gtag === \'function\') {\n' +
+        '            gtag(\'event\', \'click_zalo_featured\', { event_category: \'Featured Banner Click\', event_label: title.trim(), link_url: featCard.href || \'\' });\n' +
+        '          }\n' +
+        '        });\n' +
+        '      }\n' +
+        '      var contactPill = document.getElementById(\'contact-pill\');\n' +
+        '      if (contactPill) {\n' +
+        '        contactPill.addEventListener(\'click\', function() {\n' +
+        '          var text = (document.getElementById(\'contact-text\') || {}).innerText || \'Contact Pill\';\n' +
+        '          if (typeof gtag === \'function\') {\n' +
+        '            gtag(\'event\', \'click_contact_pill\', { event_category: \'Contact Pill Click\', event_label: text.trim(), link_url: contactPill.href || \'\' });\n' +
+        '          }\n' +
+        '        });\n' +
+        '      }\n' +
+        '    });\n' +
+        '  </scr' + 'ipt>\n' +
         '\n</body>\n</html>';
 
       const btnExport = document.getElementById('btn-export-clean');
