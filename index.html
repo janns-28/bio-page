@@ -57,11 +57,13 @@
   .card-title-text{flex:1;min-width:0;}
   .card-desc{margin-top:6px;font-size:12.5px;line-height:1.5;color:var(--ink-soft);}
   .card-desc.with-tip{font-size:11.5px;line-height:1.4;}
-  .card:hover
-  .card:hover
-
   .tip-icon{width:26px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px;}
   .hl{color:var(--pink);font-weight:700;}
+  .card-cta-btn{margin:10px auto 0 !important;display:flex !important;align-items:center !important;justify-content:center !important;gap:6px !important;background:linear-gradient(135deg,#E5127A 0%,#FF2E8C 100%) !important;color:#FFFFFF !important;font-family:"Baloo 2",sans-serif !important;font-weight:700 !important;font-size:13px !important;padding:7px 14px !important;border-radius:999px !important;box-shadow:0 4px 14px rgba(229,18,122,0.35) !important;text-align:center !important;width:100% !important;box-sizing:border-box !important;transition:all .2s ease !important;user-select:none !important;text-decoration:none !important;}
+  .card-cta-btn span{color:#FFFFFF !important;font-weight:700 !important;line-height:1.2 !important;}
+  .card:hover .card-cta-btn{transform:translateY(-1px) !important;box-shadow:0 6px 18px rgba(229,18,122,0.45) !important;background:linear-gradient(135deg,#C10E68 0%,#E5127A 100%) !important;}
+  .card-cta-btn .cta-arrow{font-size:16px !important;line-height:1 !important;margin-left:2px !important;color:#FFFFFF !important;transition:transform .2s ease !important;}
+  .card:hover .card-cta-btn .cta-arrow{transform:translateX(3px) !important;}
   .community-list{display:flex;flex-direction:column;gap:12px;}
   .community-row{display:flex;align-items:center;gap:14px;background:var(--surface);border:2px solid var(--border);border-radius:18px;padding:12px 16px;box-shadow:var(--shadow-soft);position:relative;transition:all .2s ease;text-decoration:none;color:inherit;}
   .community-row:hover{transform:translateY(-2px);border-color:var(--green);}
@@ -81,50 +83,6 @@
   footer{margin-top:38px;background:#0B0B0D;border-radius:18px;padding:16px 20px;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;color:#B4AFB8;font-size:11.5px;}
   footer img{height:20px;width:auto;display:block;}
   @media (max-width:420px){.grid{grid-template-columns:1fr 1fr;gap:10px;}.hero-name{font-size:22px;}}
-  
-  .card-cta-btn {
-    margin: 10px auto 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    background: linear-gradient(135deg, #E5127A 0%, #FF2E8C 100%) !important;
-    color: #FFFFFF !important;
-    font-family: "Baloo 2", sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 13px !important;
-    padding: 7px 14px !important;
-    border-radius: 999px !important;
-    box-shadow: 0 4px 14px rgba(229, 18, 122, 0.35) !important;
-    text-align: center !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    transition: all 0.2s ease !important;
-    user-select: none !important;
-    cursor: pointer !important;
-    text-decoration: none !important;
-  }
-  .card-cta-btn span {
-    color: #FFFFFF !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-  }
-  .card:hover .card-cta-btn {
-    transform: translateY(-1px) !important;
-    box-shadow: 0 6px 18px rgba(229, 18, 122, 0.45) !important;
-    background: linear-gradient(135deg, #C10E68 0%, #E5127A 100%) !important;
-  }
-  .card-cta-btn .cta-arrow {
-    font-size: 16px !important;
-    line-height: 1 !important;
-    margin-left: 2px !important;
-    color: #FFFFFF !important;
-    transition: transform 0.2s ease !important;
-  }
-  .card:hover .card-cta-btn .cta-arrow {
-    transform: translateX(3px) !important;
-  }
-
   </style>
 </head>
 <body>
@@ -198,7 +156,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(1, this)">TOP1: MẤN NỲ VEO - DIỆT NẬU XỚ</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(1, this)"><svg class="tip-icon" viewBox="0 0 64 34" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="62" height="18" rx="9" fill="#2B2B2B"></rect><circle cx="40" cy="10" r="1.8" fill="#fff"></circle><circle cx="46" cy="10" r="1.8" fill="#fff"></circle><circle cx="52" cy="10" r="1.8" fill="#fff"></circle><circle cx="46" cy="10" r="12" fill="none" stroke="#E5127A" stroke-width="2.5"></circle></svg>Nếu không vào được vui lòng bấm <span class="hl">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://go.dinos.click/click?a=4901&amp;o=1185" target="_blank" rel="noopener">
           
@@ -209,7 +170,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(2, this)">TOP 2: VAYMÈO - DIỆT NẬU XỚ</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(2, this)"><svg class="tip-icon" viewBox="0 0 64 34" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="62" height="18" rx="9" fill="#2B2B2B"></rect><circle cx="40" cy="10" r="1.8" fill="#fff"></circle><circle cx="46" cy="10" r="1.8" fill="#fff"></circle><circle cx="52" cy="10" r="1.8" fill="#fff"></circle><circle cx="46" cy="10" r="12" fill="none" stroke="#E5127A" stroke-width="2.5"></circle></svg>Nếu không vào được vui lòng bấm <span class="hl">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://go.dinos.click/click?a=4901&amp;o=496" target="_blank" rel="noopener">
           
@@ -220,7 +184,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(3, this)">TOP 3: CÁT SỜ PÂY - DIỆT NẬU XỚ</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(3, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://go.dinos.click/click?a=4901&amp;o=302" target="_blank" rel="noopener">
           
@@ -231,7 +198,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(4, this)">TOP 4: ĐỒNG 247 - DIỆT NẬU XỚ</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(4, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card wide" href="https://go.dinos.click/click?a=4901&amp;o=161" target="_blank" rel="noopener">
           
@@ -242,7 +212,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(5, this)">CON NÀY NẰM TRONG TÓP ANH EM CÂN NHẮC</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(5, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card wide" href="https://rutgon.asia/EQLak20" target="_blank" rel="noopener">
           
@@ -253,7 +226,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(6, this)">LioBank - Thẻ tín dụng hạn mức lên đến 50 củ</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(6, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://rutgon.asia/SnxWz00" target="_blank" rel="noopener">
           
@@ -264,7 +240,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(7, this)">ÁP MỚI RA NÈ MẤY ĐẠI KA</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(7, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://go.clickbuy.asia/click?a=4901&amp;o=1454" target="_blank" rel="noopener">
           
@@ -275,7 +254,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(8, this)">CRE DY - NẬU XỚ BAO ĐÂM</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(8, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://rutgon.asia/EcEqB30" target="_blank" rel="noopener">
           
@@ -286,7 +268,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(9, this)">CRE ZU - NẬU XỚ BAO ĐÂM</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(9, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://facebook.com" target="_blank" rel="noopener">
           
@@ -297,7 +282,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(10, this)">VAY XANH - NẬU XỚ BAO ĐÂM</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(10, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a><a class="card" href="https://rutgon.asia/edReV20" target="_blank" rel="noopener">
           
@@ -308,7 +296,10 @@
               <span class="card-title-text" onblur="updateCardTitleText(1794985020092, this)">DONG247 - NẬU XỚ BAO ĐÂM</span>
             </div>
             <p class="card-desc with-tip" onblur="updateCardDesc(1794985020092, this)">Nếu không vào được vui lòng bấm <span class="hl" style="color: rgb(229, 18, 122) !important;">3 chấm góc phải màn hình</span>, chọn mở trong trình duyệt.</p>
-            <div class="card-cta-btn"><span>💸 Nhận Tiền Ngay</span><span class="cta-arrow">›</span></div>
+            <div class="card-cta-btn">
+              <span>💸 Nhận Tiền Ngay</span>
+              <span class="cta-arrow">›</span>
+            </div>
           </div>
         </a></div>
 
