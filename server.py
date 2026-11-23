@@ -49,6 +49,36 @@ class StudioHandler(SimpleHTTPRequestHandler):
                 self.send_header('Content-Type', 'application/json; charset=utf-8')
                 self.end_headers()
                 self.wfile.write(json.dumps({'success': False, 'error': str(e)}).encode('utf-8'))
+        elif self.path == '/api/save-thumbnail':
+            try:
+                import base64
+                content_length = int(self.headers.get('Content-Length', 0))
+                raw_body = self.rfile.read(content_length).decode('utf-8')
+                payload = json.loads(raw_body)
+                b64_str = payload.get('image', '')
+                if ',' in b64_str:
+                    b64_str = b64_str.split(',', 1)[1]
+                data = base64.b64decode(b64_str)
+                
+                thumb_root = os.path.join(DIRECTORY, 'thumbnail.jpg')
+                thumb_images = os.path.join(DIRECTORY, 'images', 'thumbnail.jpg')
+                with open(thumb_root, 'wb') as f:
+                    f.write(data)
+                with open(thumb_images, 'wb') as f:
+                    f.write(data)
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                res = {'success': True, 'message': 'Đã lưu ảnh thumbnail.jpg', 'url': '/thumbnail.jpg'}
+                self.wfile.write(json.dumps(res, ensure_ascii=False).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({'success': False, 'error': str(e)}).encode('utf-8'))
         else:
             self.send_response(404)
             self.end_headers()
